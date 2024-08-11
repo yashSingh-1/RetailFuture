@@ -2,7 +2,7 @@
 
 import { UserSchema } from "@/lib/valifation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
@@ -18,31 +18,45 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { createUser } from "@/lib/actions/user.actions";
+
 
 enum TypesOfCustomer {
   typeOfUserHere = "AffilateUser" ,
   otherType = "SalesMan"
 }
 
-const FormUserDetails = ({ name, email }: { name: string; email: string }) => {
-  const [typeOfUser, setTypeOfUser ] = useState<TypesOfCustomer>(TypesOfCustomer.otherType)
+const FormUserDetails = ({ name, email, userClerkId, img }: { name: string; email: string; userClerkId: string; img: string }) => {
+  const [typeOfUser, setTypeOfUser ] = useState<TypesOfCustomer>(TypesOfCustomer.typeOfUserHere)
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof UserSchema>>({
     resolver: zodResolver(UserSchema),
     defaultValues: {
       name: name,
       email: email,
-      typeOfCustomer: typeOfUser
+      typeOfCustomer: typeOfUser,
+      image: img
     },
   });
+
+  // const userType = JSON.stringify(typeOfUser)
 
   // console.log("Type of user", typeOfUser);
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof UserSchema>) {
+  async function onSubmit(values: z.infer<typeof UserSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    alert("I am working")
+   
+    const onboarded = await createUser({
+      typeOfCustomer: typeOfUser,
+      email: email,
+      name: name,
+      userClerkId:  userClerkId,
+      image: img});
+      
+    console.log("Is this nigs onboarded", onboarded)
     console.log("values ",values);
   }
 

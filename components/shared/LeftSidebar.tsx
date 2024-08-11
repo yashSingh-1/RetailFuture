@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 const LeftSidebar = () => {
   const pathname = usePathname();
   return (
-    <div className="hidden md:flex flex-col min-h-screen   bg-zinc-900 min-w-[200px] max-w-[300px] text-white">
+    <div className="hidden md:flex flex-col min-h-screen   bg-zinc-950 min-w-[200px] max-w-[300px] text-white">
       <Link href="/" className="flex mx-auto pt-6 text-3xl font-mono">Retail</Link>
       <div className="flex flex-col gap-6 px-4 py-10 items-start ">
         {SidebarLinks.map((links) => {

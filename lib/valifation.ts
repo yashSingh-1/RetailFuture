@@ -8,5 +8,6 @@ enum TypesOfCustomer {
 export const UserSchema = z.object({
   name: z.string().min(2).max(50),
   typeOfCustomer: z.nativeEnum(TypesOfCustomer),
-  email: z.string().email()
+  email: z.string().email(),
+  image: z.string().optional()
 })

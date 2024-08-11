@@ -24,6 +24,7 @@ model User {
   typeOfCustomer TypesOfCustomer?
   userIdClerk String @unique
   email String @unique
+  image String?
 
   Product Product[]
 } 
@@ -35,4 +36,5 @@ model Product {
   title String
   price String
   commissionRate String
+
 }

@@ -1,4 +1,5 @@
 import FormUserDetails from '@/components/Forms/FormUserDetails'
+import { findUserInDB } from '@/lib/actions/user.actions';
 import { currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 import React from 'react'
@@ -8,10 +9,16 @@ const page = async () => {
 
   if(!user) redirect("/sign-in")
 
+  const foundUser = await findUserInDB(user.id);
+
+  if(foundUser){
+    redirect("/")
+  }
+
   const email = user.emailAddresses[0].emailAddress
   return (
     <div className='bg-zinc-800'>
-        <FormUserDetails name={user.fullName!} email={email}  />
+        <FormUserDetails name={user.fullName!} email={email} userClerkId={user.id} img={user.imageUrl} />
     </div>
   )
 }
