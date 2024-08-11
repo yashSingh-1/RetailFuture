@@ -54,7 +54,8 @@ const FormUserDetails = ({ name, email, userClerkId, img }: { name: string; emai
       email: email,
       name: name,
       userClerkId:  userClerkId,
-      image: img});
+      image: img
+    });
       
     console.log("Is this nigs onboarded", onboarded)
     console.log("values ",values);

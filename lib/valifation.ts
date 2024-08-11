@@ -11,3 +11,14 @@ export const UserSchema = z.object({
   email: z.string().email(),
   image: z.string().optional()
 })
+
+
+export const ProductSchema = z.object({
+  title: z.string().min(5).max(60),
+  description: z.string(),
+  price: z.string().min(1).max(5, {
+    message: "The price must be less than a Lakh"
+  }),
+  commission: z.string(),
+  image: z.string()
+})

@@ -32,9 +32,10 @@ model User {
 model Product {
   id String @id @unique @default(cuid())
   userId String
-  user User @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [userIdClerk])
   title String
   price String
   commissionRate String
-
+  image String
+  description String
 }
