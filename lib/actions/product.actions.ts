@@ -1,7 +1,6 @@
 "use server";
 
 import { db } from "@/db";
-import { redirect } from "next/navigation";
 
 interface Props {
   userId: string;
@@ -38,13 +37,35 @@ export const CreateProductForUser = async ({
 };
 
 export const GetAllProducts = async (userId: string) => {
-    const allProducts = await db.product.findMany({
-        where: {
-            userId: userId
-        }
-    })
-    // console.log("All products", allProducts)
-    return allProducts;
+  const allProducts = await db.product.findMany({
+    where: {
+      userId: userId,
+    },
+  });
+  // console.log("All products", allProducts)
+  return allProducts;
+};
+
+export const PopulateProductForAll = async () => {
+  const allProductsLiterally = await db.product.findMany({
+    select: {
+      id: true,
+      title: true,
+      price: true,
+      commissionRate: true,
+      image: true,
+      description: true,
+    },
+  });
+  // console.log("Lit all pro", allProductsLiterally);
+  return allProductsLiterally;
+};
+
+export const getProductById = async (id: string) => {
+  const product = await db.product.findUnique({
+    where: {
+      id: id
+    }
+  })
+  return product;
 }
-
-

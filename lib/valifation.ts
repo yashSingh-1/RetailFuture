@@ -22,3 +22,12 @@ export const ProductSchema = z.object({
   commission: z.string(),
   image: z.string()
 })
+
+export const ReviewSchema = z.object({
+  review: z.string(),
+  reviewerName: z.string(),
+  stars: z.number({
+    required_error: "Stars is required",
+    invalid_type_error: "Number of Stars must be a positive number"
+  }).min(1).max(1).nonnegative().default(0)
+})

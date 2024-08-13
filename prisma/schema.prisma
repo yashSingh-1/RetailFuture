@@ -27,6 +27,7 @@ model User {
   image String?
 
   Product Product[]
+  Review Review[]
 } 
 
 model Product {
@@ -38,4 +39,16 @@ model Product {
   commissionRate String
   image String
   description String
+  reviews Review[]
+}
+
+model Review {
+  id String @id @unique @default(cuid())
+  parentProductId String
+  ParentProduct Product @relation(fields: [parentProductId], references: [id])
+  UserReviewerId String
+  ReviewedUser User @relation(fields: [UserReviewerId], references: [id])
+  ReviewStory String
+  NameOfReviewer String
+  StarsAwarded Int
 }
