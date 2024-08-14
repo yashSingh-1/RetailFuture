@@ -28,6 +28,7 @@ model User {
 
   Product Product[]
   Review Review[]
+  IfSomeBodyBoughtHisReviewedProduct BoughtAddress[]
 } 
 
 model Product {
@@ -40,6 +41,7 @@ model Product {
   image String
   description String
   reviews Review[]
+  BoughtBy BoughtAddress[]
 }
 
 model Review {
@@ -51,4 +53,18 @@ model Review {
   ReviewStory String
   NameOfReviewer String
   StarsAwarded Int
+}
+
+model BoughtAddress {
+  id String @id @unique @default(cuid())
+  ProductBought String
+  ProductRelation Product @relation(fields: [ProductBought], references: [id])
+  UserWhichGeneratedTheAffilaitedLink String
+  UserRelation User @relation(fields: [UserWhichGeneratedTheAffilaitedLink], references: [id])
+  FlatOrHouse String
+  City String
+  Country String
+  PinCode String
+  PhoneNum String
+  Email String
 }

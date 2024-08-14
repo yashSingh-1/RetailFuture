@@ -14,7 +14,6 @@ const GenerateAffliliateLink = ({
     ParentProductId,
     userID
 }: Props) => {
-    const router = useRouter();
     // const GeneratedLinkSchema = `/reviews/affiliate/${userID}${ParentProductId}`
     const YourLink = GenerateLink({userID: userID, ParentProductId: ParentProductId});
   return (

@@ -33,19 +33,19 @@ const ReviewCard = async ({
                 YourLink ? 
                 <div className="p-2 border-2 rounded-lg border-slate-700 mt-2  w-full flex justify-between">
                     <span className="my-auto">
-                    {YourLink.slice(10,40)}
+                    {YourLink.slice(0,30)}
                     </span>
                     <div>
                         <Button className="bg-blue-600">Copy</Button>
                     </div>
                 </div> : null
             }
-          <div className="mr-2 mt-2">
+          <div className="mt-2">
             <GenerateAffliliateLink ParentProductId={ParentProductId} userID={userIdThatSubmitted} />
           </div>
         </div>
       </div>
-      <div className="col-span-1 text-white border-l border-slate-700 p-4 flex flex-col">
+      <div className="col-span-1 text-white border-l border-slate-700 p-4 flex flex-col mt-4 border-r">
             <span className="text-lg font-mono">
             ReviewedProduct: "{productThatIsReviewed?.title}"
             </span>            

@@ -28,3 +28,12 @@ export const ReviewSchema = z.object({
   reviewerName: z.string(),
   stars: z.string().min(1).max(1)
 })
+
+export const AddressSchema = z.object({
+  FlatOrHouse: z.string().max(50),
+  City: z.string().max(40),
+  Country: z.string().max(20),
+  PinCode: z.number().max(10),
+  PhoneNum: z.number().max(12),
+  Email: z.string().email()
+})

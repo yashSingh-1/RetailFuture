@@ -7,6 +7,6 @@ export const GenerateLink = ({
     userID,
     ParentProductId
 }: Props) => {
-    const GeneratedLinkSchema = `/affiliate/${userID}${ParentProductId}`
+    const GeneratedLinkSchema = `/affiliate/${userID}/${ParentProductId}`
     return GeneratedLinkSchema;
 }

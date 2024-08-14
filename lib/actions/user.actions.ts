@@ -13,7 +13,7 @@ export const createUser = async ({
   email,
   name,
   userClerkId,
-  image
+  image,
 }: {
   typeOfCustomer: TypesOfCustomer;
   email: string;
@@ -38,7 +38,7 @@ export const createUser = async ({
         name: name,
         typeOfCustomer: typeOfCustomer,
         userIdClerk: userClerkId,
-        image: image
+        image: image,
       },
     });
     console.log("Created user", userCreate);
@@ -48,16 +48,19 @@ export const createUser = async ({
   }
 };
 
-export const findUserInDB = async (userClerkId :string) => {
-    const foundUser = await db.user.findFirst({
-        where: {
-            userIdClerk: userClerkId
-        },
-        select: {
-          id: true
-        }
-    })
-    return foundUser;
-}
+export const findUserInDB = async (userClerkId: string) => {
+  const foundUser = await db.user.findFirst({
+    where: {
+      userIdClerk: userClerkId,
+    },
+    select: {
+      id: true,
+      name: true,
+      userIdClerk: true,
+      image: true,
+    },
+  });
+  return foundUser;
+};
 
 export const createProduct = () => {};

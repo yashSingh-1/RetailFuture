@@ -74,6 +74,9 @@ export const FetchProductById = async (id: string) => {
   const product = await db.product.findUnique({
     where: {
       id: id
+    },
+    include: {
+      reviews: true
     }
   })
   return product;
