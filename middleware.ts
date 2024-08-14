@@ -3,6 +3,7 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 const unProtectedRoutes = createRouteMatcher([
   '/sign-in(.*)',
   '/sign-up(.*)',
+  '/affiliate/(.*)'
 ]);
 
 export default clerkMiddleware((auth, req) => {

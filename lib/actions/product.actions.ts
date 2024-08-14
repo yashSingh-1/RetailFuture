@@ -69,3 +69,12 @@ export const getProductById = async (id: string) => {
   })
   return product;
 }
+
+export const FetchProductById = async (id: string) => {
+  const product = await db.product.findUnique({
+    where: {
+      id: id
+    }
+  })
+  return product;
+}

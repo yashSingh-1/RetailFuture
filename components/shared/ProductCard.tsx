@@ -39,7 +39,7 @@ const ProductCard = ({
             </div>
         </div>
         <div className="flex justify-between my-2">
-            <Link href={`/review/${id}`} className="w-full mx-2 flex">
+            <Link href={`/reviews/${id}`} className="w-full mx-2 flex">
             <Button className="m-auto w-full bg-blue-600 hover:bg-slate-800" >Review and become Affiliate</Button>
             </Link>
         </div>

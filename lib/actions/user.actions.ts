@@ -52,6 +52,9 @@ export const findUserInDB = async (userClerkId :string) => {
     const foundUser = await db.user.findFirst({
         where: {
             userIdClerk: userClerkId
+        },
+        select: {
+          id: true
         }
     })
     return foundUser;

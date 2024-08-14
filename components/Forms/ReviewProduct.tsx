@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -18,6 +17,8 @@ import { z } from "zod";
 import { Textarea } from "@/components/ui/textarea";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { CreateReview } from "@/lib/actions/review.actions";
+import { useRouter } from "next/navigation";
 
 interface Props {
   imgOfProduct: string;
@@ -25,6 +26,8 @@ interface Props {
   productPrice: string;
   productCommission: string;
   productDescription: string;
+  productId: string;
+  userId: string;
 }
 
 const ReviewProduct = ({
@@ -33,16 +36,19 @@ const ReviewProduct = ({
   productPrice,
   productCommission,
   productDescription,
+  productId,
+  userId,
 }: Props) => {
   const [star, setStar] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof ReviewSchema>>({
     resolver: zodResolver(ReviewSchema),
     defaultValues: {
       review: "",
       reviewerName: "",
-      stars: 0,
+      stars: "",
     },
   });
 
@@ -58,12 +64,21 @@ const ReviewProduct = ({
     }
   }, [star]);
 
-  function onSubmit(values: z.infer<typeof ReviewSchema>) {
+  async function onSubmit(values: z.infer<typeof ReviewSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     alert("kbfd");
-
-    console.log(values);
+    const createdReview = await CreateReview({
+      productId: productId,
+      reviewerId: userId,
+      review: values.review,
+      nameOfReviewer: values.reviewerName,
+      stars: Number(star),
+    });
+    console.log("Creatd Review", createdReview);
+    if(createdReview){
+        router.push("/reviews")
+    }
   }
 
   return (
@@ -87,7 +102,9 @@ const ReviewProduct = ({
             </div>
             <div className="text-sm text-slate-400">{productDescription}</div>
             <div className="text-lg font-mono">Your commission: {yourComm}</div>
-            <div className="text-lg font-mono">Price of the product: {productPrice}</div>
+            <div className="text-lg font-mono">
+              Price of the product: {productPrice}
+            </div>
           </div>
           <div className="flex flex-col m-auto">
             <Form {...form}>
@@ -159,7 +176,7 @@ const ReviewProduct = ({
                   className="bg-blue-600 hover:bg-blue-500 w-full"
                   type="submit"
                 >
-                  Add review and generate Afflilate link
+                  Review
                 </Button>
               </form>
             </Form>
