@@ -58,9 +58,22 @@ export const findUserInDB = async (userClerkId: string) => {
       name: true,
       userIdClerk: true,
       image: true,
+      email: true
     },
   });
   return foundUser;
 };
+
+export const FetchingIfAnyoneBoughtYourAffilaiteProducts = async (id: string) => {
+  const PeopleWhoBought = await db.user.findMany({
+    where: {
+      id: id
+    },
+    select: {
+      IfSomeBodyBoughtHisReviewedProduct: true
+    }
+  })
+  return PeopleWhoBought;
+}
 
 export const createProduct = () => {};

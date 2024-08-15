@@ -13,7 +13,11 @@ export default function RootLayout({
   return (
     <ClerkProvider>
     <html lang="en">
-      <body >{children}</body>
+      <body className="h-screen w-full m-auto">
+        <main className="m-auto">
+        {children}
+        </main>
+      </body>
     </html>
     </ClerkProvider>
   )

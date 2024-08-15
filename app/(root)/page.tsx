@@ -7,7 +7,11 @@ export default async function Home() {
   const AllProducts = await PopulateProductForAll();
   // console.log("All Products", AllProducts);
   return (
-    <div className="bg-zinc-800 w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-2">
+    <div className="bg-zinc-800 w-full h-full p-4">
+      <div className="text-4xl font-mono text-blue-600 mb-5">
+        Products for you to Review!
+      </div>
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-2">
       {AllProducts.map((products) => (
         <ProductCard
           key={products.id}
@@ -19,6 +23,7 @@ export default async function Home() {
           image={products.image}
         />
       ))}
+    </div>
     </div>
   );
 }

@@ -8,7 +8,10 @@ import React from 'react'
 const page = async () => {
   const user = await currentUser();
   return (
-    <div className='bg-zinc-900 w-full h-full'>
+    <div className='bg-zinc-900 w-full h-full p-4'>
+      <div className='text-4xl font-mono text-blue-600 p-4 md:py-8'>
+        Products
+      </div>
       <div className='pt-4 p-2'>
       <AllProducts id={user!.id} />
       </div>

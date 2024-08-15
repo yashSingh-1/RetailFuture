@@ -17,7 +17,10 @@ const page = async () => {
 
   const email = user.emailAddresses[0].emailAddress
   return (
-    <div className='bg-zinc-800'>
+    <div className='bg-zinc-800 flex flex-col'>
+      <div className='text-3xl font-mono text-blue-600 p-4 md:p-8'>
+        Onboarding
+      </div>
         <FormUserDetails name={user.fullName!} email={email} userClerkId={user.id} img={user.imageUrl} />
     </div>
   )
