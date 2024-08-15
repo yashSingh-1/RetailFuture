@@ -16,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { CreateAddress } from "@/lib/actions/bought.actions";
+import { useRouter } from "next/navigation";
 
 interface Props {
   ProductThatsIsBought: string;
@@ -26,6 +27,7 @@ const BuyNowForm = ({
   ProductThatsIsBought,
   userWhoGeneratedTheAffilaiate,
 }: Props) => {
+  const router = useRouter()
   const form = useForm<z.infer<typeof AddressSchema>>({
     resolver: zodResolver(AddressSchema),
     defaultValues: {
@@ -52,6 +54,9 @@ const BuyNowForm = ({
       PhoneNum: values.PhoneNum,
       Email: values.Email
     });
+    if(AddressOfThePersonWhoBoughtIT){
+      router.push(`/affiliate/bought/${userWhoGeneratedTheAffilaiate}/${ProductThatsIsBought}`)
+    }
     console.log("Address", AddressOfThePersonWhoBoughtIT)
     console.log(values);
   }
