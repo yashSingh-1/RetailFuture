@@ -7,7 +7,10 @@ const BuyPage = ({ params }: { params: any }) => {
   console.log(params)
   return (
     <div className='bg-zinc-900 w-full h-screen text-white'>
-        <BuyNowForm />
+        <BuyNowForm 
+        ProductThatsIsBought={ProductId} 
+        userWhoGeneratedTheAffilaiate={userID} 
+        />
     </div>
   )
 }
