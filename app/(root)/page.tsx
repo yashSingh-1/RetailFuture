@@ -1,9 +1,20 @@
 import LeftSidebar from "@/components/shared/LeftSidebar";
 import ProductCard from "@/components/shared/ProductCard";
 import { PopulateProductForAll } from "@/lib/actions/product.actions";
+import { findUserInDB } from "@/lib/actions/user.actions";
+import { currentUser } from "@clerk/nextjs/server";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
+  const user = await currentUser();
+
+  const findingUser = await findUserInDB(user!.id)
+
+  if(!findingUser){
+    redirect("/onboarding")
+  }
+  
   const AllProducts = await PopulateProductForAll();
   // console.log("All Products", AllProducts);
   return (

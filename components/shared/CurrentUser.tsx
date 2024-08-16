@@ -8,7 +8,7 @@ const CurrentUser = async ({ id }: { id: string }) => {
   const foundUser = await findUserInDB(id);
 
   return (
-    <div className="flex flex-col text-white p-5">
+    <div className="flex flex-col text-white p-5 font-mono">
       <div className="text-4xl p-2">
         Hello, <span className="text-blue-700">{foundUser?.name}</span>
       </div>
