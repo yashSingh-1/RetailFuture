@@ -14,9 +14,11 @@ const page = async () => {
           <div className="text-lg font-mono">
             The Future of Retail
           </div>
+          <div className="p-1 border-2 rounded-full flex items-center ">
           <SignedIn>
             <UserButton />
           </SignedIn>
+          </div>
         </div>
         <CurrentUser id={user!.id} />
       </div>

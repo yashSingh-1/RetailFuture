@@ -82,11 +82,11 @@ const ReviewProduct = ({
 
   return (
     <div className="w-full h-full">
-      <div className="text-white text-2xl pt-4 ps-4">
+      <div className="text-white text-2xl pt-4 ps-4 mb-4 font-mono">
         Review Product and become Affiliate of{" "}
         <span className="text-blue-500 text-xl">&quot;{productTitle}&quot;</span>
       </div>
-      <div className="text-white min-w-[400px] md:min-w-[500px] h-full flex flex-col md:flex-row">
+      <div className="text-white min-w-[400px] md:min-w-[500px] h-full flex flex-col md:flex-row ">
         <div className="md:grid grid-cols-2 w-full h-full">
           <div className="m-auto p-2 rounded-lg max-w-[350px] text-center">
             <Image
@@ -100,16 +100,16 @@ const ReviewProduct = ({
               {productTitle.toUpperCase()}
             </div>
             <div className="text-sm text-slate-400">{productDescription}</div>
-            <div className="text-lg font-mono">Your commission: {yourComm}</div>
+            <div className="text-lg font-mono">Your commission: ₹ {yourComm}</div>
             <div className="text-lg font-mono">
-              Price of the product: {productPrice}
+              Price of the product: ₹ {productPrice} 
             </div>
           </div>
           <div className="flex flex-col m-auto">
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-5 m-auto"
+                className="space-y-5 m-auto mt-10 md:mt-0 border-t md:border-0 pt-4"
               >
                 <FormField
                   control={form.control}

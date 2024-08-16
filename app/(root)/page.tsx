@@ -21,6 +21,7 @@ export default async function Home() {
           commission={products.commissionRate}
           description={products.description}
           image={products.image}
+          userThatCreated={products.user.name}
         />
       ))}
     </div>

@@ -55,6 +55,7 @@ export const PopulateProductForAll = async () => {
       commissionRate: true,
       image: true,
       description: true,
+      user: true
     },
   });
   // console.log("Lit all pro", allProductsLiterally);
@@ -81,3 +82,12 @@ export const FetchProductById = async (id: string) => {
   })
   return product;
 }
+
+// export const DeleteProduct = async (id: string) => {
+//   const deleteProduct = await db.product.deleteMany({
+//     where: {
+//       id: id
+//     }
+//   })
+//   return deleteProduct;
+// }

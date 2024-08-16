@@ -13,6 +13,9 @@ const TrackPage = async () => {
         <div className='text-4xl p-8 md:p-4 text-blue-600 font-mono'>
             Tracking Your Achievements: 
         </div>
+        <div className='text-2xl px-8 py-4 text-slate-300 font-mono'>
+            People who bought your Affiliate Product:
+        </div>
         <div className='text-white w-full'>
             {
                 PeopleWhoBoughtYourAffiliate.length > 0 ?
@@ -33,7 +36,6 @@ const TrackPage = async () => {
                             You have not produced any Affiliate Links yet!
                         </div>
                         }
-                        
                     </div>
                 )): <div className='text-2xl font-mono text-white'>
                 You have not produced any Affiliate Links yet!

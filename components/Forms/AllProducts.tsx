@@ -1,6 +1,7 @@
 import { GetAllProducts } from "@/lib/actions/product.actions";
 import Image from "next/image";
 import React from "react";
+import { Button } from "../ui/button";
 
 const AllProducts = async ({ id }: { id: string }) => {
   const allProducts = await GetAllProducts(id);
@@ -10,43 +11,31 @@ const AllProducts = async ({ id }: { id: string }) => {
       {
         allProducts.length > 0 ? 
         allProducts.map((product) => (
-          <div key={product.id} className="flex bg-zinc-800 border-t-2 border-b-2 border-black text-white p-2 mx-4 rounded-lg">
-            <div className="grid grid-cols-5 items-center">
-              <div className="flex col-span-1 items-center justify-center ">
+          <div key={product.id} className="flex flex-col md:flex-row font-mono bg-zinc-800 border-t-2 border-b-2 border-black text-white p-2 mx-4 my-2 rounded-lg">
+            <div className="flex flex-col md:flex-row items-center">
+              <div className="flex items-center justify-center p-2 m-2 ">
                 <Image
                   src={product.image}
                   alt="small Product image"
-                  width={50}
-                  height={40}
-                  className="rounded-full p-1 border-2 border-black bg-white col-span-1"
+                  width={100}
+                  height={80}
+                  className="rounded-full p-1 border-2 border-black bg-white mx-2  "
                 />
   
-                <span className="ml-2">{product.title}</span>
+                <span className="ml-2 font-bold w-[250px]">{product.title}</span>
               </div>
-              <div className="flex justify-center">{product.price} Rs</div>
-              <div className="flex justify-center">
+              <div className="flex flex-col md:flex-row w-full">
+              <div className="flex justify-center w-full">{product.price} Rs</div>
+              <div className="flex justify-center w-full me-5">
                 Commission: {product.commissionRate}%
               </div>
-              <div className="flex  w-full justify-end">
+              </div>
+              <div className="flex  w-full justify-center md:justify-end text-slate-400">
                 Open for: Affiliate and Reviews
               </div>
-              <div className="flex justify-center gap-5">
-                <Image
-                  src="/icons/Home.svg"
-                  alt="Edit"
-                  width={24}
-                  height={24}
-                  className="invert"
-                />
-                <Image
-                  src="/icons/Home.svg"
-                  alt="Edit"
-                  width={24}
-                  height={24}
-                  className="invert"
-                />
-              </div>
+              
             </div>
+            
           </div>
         )) : <div className="text-2xl text-white font-mono">
           No Products created by You yet!
