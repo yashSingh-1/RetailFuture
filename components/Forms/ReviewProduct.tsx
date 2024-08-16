@@ -52,7 +52,7 @@ const ReviewProduct = ({
     },
   });
 
-  const yourComm = (Number(productCommission) / 100) * Number(productPrice);
+  const yourComm = ((Number(productCommission) / 100) * Number(productPrice)).toFixed(1);
 
   useEffect(() => {
     const stars = Number(star);

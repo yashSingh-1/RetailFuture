@@ -33,12 +33,12 @@ const TrackPage = async () => {
                                 </div>
                                 </div>
                             )): <div className='text-2xl font-mono text-white px-4 my-10'>
-                            You have not produced any Affiliate Links yet!
+                            No one has yet bought your products
                         </div>
                         }
                     </div>
                 )): <div className='text-2xl font-mono text-white'>
-                You have not produced any Affiliate Links yet!
+                {/* You have not produced any Affiliate Links yet! */}
             </div>
             }
 

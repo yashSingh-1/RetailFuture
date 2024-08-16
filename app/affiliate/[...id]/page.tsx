@@ -33,7 +33,7 @@ const page = async ({ params }: { params: any }) => {
         <div className="text-xl text-blue-600 m-auto font-mono mb-5">
         Reviews of the Product: 
     </div>
-        <div className="m-auto md:grid grid-cols-1">
+        <div className="m-auto md:grid md:grid-cols-2" id="#reviews">
           {Reviews.map((review) => (
             <ReviewsOfTheProduct
               key={review.id}
