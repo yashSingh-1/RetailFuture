@@ -7,7 +7,7 @@ export default async function Home() {
   const AllProducts = await PopulateProductForAll();
   // console.log("All Products", AllProducts);
   return (
-    <div className="bg-zinc-800 w-full h-full p-4">
+    <div className="bg-zinc-900 w-full h-full p-4">
       <div className="text-4xl font-mono text-blue-600 mb-5">
         Products for you to Review!
       </div>

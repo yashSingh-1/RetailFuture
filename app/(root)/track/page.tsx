@@ -17,11 +17,11 @@ const TrackPage = async () => {
             {
                 PeopleWhoBoughtYourAffiliate.length > 0 ?
                 PeopleWhoBoughtYourAffiliate.map((people) => (
-                    <div className='w-full'>
+                    <div className='w-full' key="Something">
                         {
                             people.IfSomeBodyBoughtHisReviewedProduct.length > 0 ? 
                             people.IfSomeBodyBoughtHisReviewedProduct.map((items) => (
-                                <div className='flex flex-col md:flex-row border-b border-slate-600 py-4'>
+                                <div className='flex flex-col md:flex-row border-b border-slate-600 py-4' key={items.id}>
                                     <div key={items.id} className='flex flex-col bg-slate-600 w-[300px] p-4 m-2 ms-8 rounded-lg '>
                                     {items.Email}
                                 </div>

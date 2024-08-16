@@ -47,7 +47,7 @@ const ReviewCard = async ({
       </div>
       <div className="col-span-1 text-white border-l border-slate-700 p-4 flex flex-col mt-4 border-r">
             <span className="text-lg font-mono">
-            ReviewedProduct: "{productThatIsReviewed?.title}"
+            ReviewedProduct: &quot;{productThatIsReviewed?.title}&quot;
             </span>            
             <span className="text-sm font-mono text-slate-500">
                 Description: {productThatIsReviewed?.description}

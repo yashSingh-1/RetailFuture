@@ -67,7 +67,6 @@ const ReviewProduct = ({
   async function onSubmit(values: z.infer<typeof ReviewSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    alert("kbfd");
     const createdReview = await CreateReview({
       productId: productId,
       reviewerId: userId,
@@ -85,7 +84,7 @@ const ReviewProduct = ({
     <div className="w-full h-full">
       <div className="text-white text-2xl pt-4 ps-4">
         Review Product and become Affiliate of{" "}
-        <span className="text-blue-500 text-xl">"{productTitle}"</span>
+        <span className="text-blue-500 text-xl">&quot;{productTitle}&quot;</span>
       </div>
       <div className="text-white min-w-[400px] md:min-w-[500px] h-full flex flex-col md:flex-row">
         <div className="md:grid grid-cols-2 w-full h-full">

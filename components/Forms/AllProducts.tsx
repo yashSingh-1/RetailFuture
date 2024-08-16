@@ -10,7 +10,7 @@ const AllProducts = async ({ id }: { id: string }) => {
       {
         allProducts.length > 0 ? 
         allProducts.map((product) => (
-          <div className="flex bg-zinc-800 border-t-2 border-b-2 border-black text-white p-2 mx-4 rounded-lg">
+          <div key={product.id} className="flex bg-zinc-800 border-t-2 border-b-2 border-black text-white p-2 mx-4 rounded-lg">
             <div className="grid grid-cols-5 items-center">
               <div className="flex col-span-1 items-center justify-center ">
                 <Image
